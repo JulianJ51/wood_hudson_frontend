@@ -1,27 +1,19 @@
 <template>
   <div id="app">
     <TopBar />
-    <HeroSlide />
-    <AboutUs />
+    <router-view /> <!-- 👈 This is where the page content will load -->
   </div>
 </template>
 
 <script>
 import TopBar from './components/TopBar.vue';
-import HeroSlide from './components/HeroSlide.vue';
-import AboutUs from './components/AboutUs.vue';
 
 export default {
   components: {
-    TopBar,
-    HeroSlide,
-    AboutUs
+    TopBar
   }
 };
 </script>
-
-
-
 
 <style>
 #app {
@@ -30,6 +22,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
+

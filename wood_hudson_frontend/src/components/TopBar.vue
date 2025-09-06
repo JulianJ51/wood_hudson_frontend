@@ -5,8 +5,19 @@
     </div>
     <nav class="nav-tabs">
       <ul>
-        <li v-for="tab in tabs" :key="tab.id">
-          <a href="#" @click.prevent="scrollToSection(tab.id)">
+       <li v-for="tab in tabs" :key="tab.id">
+          <a
+            v-if="tab.id === 'contact'"
+            href="#"
+            @click.prevent="$router.push('/contact')"
+          >
+            {{ tab.name }}
+          </a>
+          <a
+            v-else
+            href="#"
+            @click.prevent="scrollToSection(tab.id)"
+          >
             {{ tab.name }}
           </a>
         </li>
