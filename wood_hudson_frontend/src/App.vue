@@ -1,17 +1,27 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <TopBar />
+    <HeroSlide />
+    <AboutUs />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TopBar from './components/TopBar.vue';
+import HeroSlide from './components/HeroSlide.vue';
+import AboutUs from './components/AboutUs.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    TopBar,
+    HeroSlide,
+    AboutUs
   }
-}
+};
 </script>
+
+
+
 
 <style>
 #app {
