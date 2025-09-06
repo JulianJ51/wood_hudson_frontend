@@ -8,10 +8,9 @@
     <nav class="nav-tabs" v-if="$route.path === '/'">
       <ul>
         <li v-for="tab in tabs" :key="tab.id">
-<<<<<<< HEAD
-=======
+
           <!-- If it's Contact, route instead of scroll -->
->>>>>>> 220592f7858c3c752ede9e4cc82b7d05bafc8268
+
           <a
             v-if="tab.id === 'contact'"
             href="#"
@@ -26,6 +25,14 @@
           >
             {{ tab.name }}
           </a>
+          <a
+  v-else-if="tab.id === 'lab'"
+  href="#"
+  @click.prevent="$router.push('/laboratory')"
+>
+  {{ tab.name }}
+</a>
+
           <a
             v-else
             href="#"

@@ -1,1 +1,3 @@
-README
+Donations (Braintree/PayPal) — Wood Hudson Cancer Research Laboratory
+
+Set up (or grant us access to) a Braintree account, enable PayPal (and any wallets you want), and we’ll embed an on-site checkout (Braintree Drop-in or Hosted Fields) so donors never leave your website. Our server issues a client token, the browser returns a nonce, and we create the transaction—no raw card data on your servers and minimal PCI (SAQ-A). We’ll configure webhooks for settlement/refunds, test in sandbox, then switch to live keys. Provide your domains and receipt/legal copy, and that’s the launch plan—no redirects to PayPal.
