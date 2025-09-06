@@ -1,11 +1,14 @@
 <template>
-  <header class ="top-bar">
+  <header class="top-bar">
     <div class="logo">
       <img src="@/assets/logo.png" alt="Logo" />
     </div>
-    <nav class="nav-tabs">
+
+    <!-- Show nav tabs only on Home page -->
+    <nav class="nav-tabs" v-if="$route.path === '/'">
       <ul>
-       <li v-for="tab in tabs" :key="tab.id">
+        <li v-for="tab in tabs" :key="tab.id">
+          <!-- If it's Contact, route instead of scroll -->
           <a
             v-if="tab.id === 'contact'"
             href="#"
@@ -23,6 +26,13 @@
         </li>
       </ul>
     </nav>
+
+    <!-- Show Back button only on Contact page -->
+    <div v-else>
+      <button class="back-btn" @click="$router.push('/')">
+        ← Back
+      </button>
+    </div>
   </header>
 </template>
 
@@ -36,7 +46,7 @@ export default {
         { id: "donate", name: "Giving Back" },
         { id: "lab", name: "Laboratory" },
         { id: "people", name: "People" },
-        { id: "contact", name: "Contact Us" },
+        { id: "contact", name: "Contact Us" }, // special case
       ],
     };
   },
@@ -51,31 +61,28 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem 2rem;
+  padding: 1rem 2rem;
   background-color: #ffffff;
   height: 11vh;
-  position: relative;
-  top: auto;
-  z-index: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-  max-height: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 50px;
 }
 
 .nav-tabs ul {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-tabs a {
@@ -88,6 +95,20 @@ export default {
 .nav-tabs a:hover {
   color: #ff0000;
 }
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.back-btn:hover {
+  color: #ff0000;
+}
 </style>
+
 
 
