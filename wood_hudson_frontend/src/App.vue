@@ -1,16 +1,18 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <TopBar />
+    <router-view /> <!-- 👈 This is where the page content will load -->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TopBar from './components/TopBar.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    TopBar
   }
-}
+};
 </script>
 
 <style>
@@ -20,6 +22,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
+
