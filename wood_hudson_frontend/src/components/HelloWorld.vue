@@ -78,3 +78,70 @@ export default {
   color: #ff0000;
 }
 </style>
+
+<style scoped>
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;        /* smaller horizontal padding on mobile */
+  background-color: #ffffff;
+  height: 11vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  flex-wrap: wrap;         /* allow wrapping on small screens */
+}
+
+.logo img {
+  max-height: 70%;         /* slightly smaller on mobile */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-tabs ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;               /* reduce gap for mobile */
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;          /* allow tabs to wrap to next line */
+  justify-content: center;  /* center tabs if they wrap */
+}
+
+.nav-tabs a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;       /* smaller font for mobile */
+}
+
+.nav-tabs a:hover {
+  color: #ff0000;
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;     /* stack logo and tabs vertically */
+    height: auto;               /* let height adjust naturally */
+    padding: 0.5rem 1rem;
+  }
+
+  .logo img {
+    max-height: 50px;           /* fixed smaller logo for tiny screens */
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-tabs ul {
+    gap: 0.5rem;                /* reduce gap */
+    justify-content: center;
+  }
+
+  .nav-tabs a {
+    font-size: 0.8rem;          /* smaller font */
+  }
+}
+</style>
+
