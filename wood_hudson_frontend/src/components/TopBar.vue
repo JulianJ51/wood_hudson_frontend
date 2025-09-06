@@ -1,15 +1,22 @@
 <template>
-  <header class ="top-bar">
+  <header class="top-bar">
     <div class="logo">
       <img src="@/assets/logo.png" alt="Logo" />
     </div>
     <nav class="nav-tabs">
       <ul>
-       <li v-for="tab in tabs" :key="tab.id">
+        <li v-for="tab in tabs" :key="tab.id">
           <a
             v-if="tab.id === 'contact'"
             href="#"
             @click.prevent="$router.push('/contact')"
+          >
+            {{ tab.name }}
+          </a>
+          <a
+            v-else-if="tab.id === 'people'"
+            href="#"
+            @click.prevent="$router.push('/people')"
           >
             {{ tab.name }}
           </a>
