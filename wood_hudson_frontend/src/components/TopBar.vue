@@ -8,9 +8,6 @@
     <nav class="nav-tabs" v-if="$route.path === '/'">
       <ul>
         <li v-for="tab in tabs" :key="tab.id">
-
-          <!-- If it's Contact, route instead of scroll -->
-
           <a
             v-if="tab.id === 'contact'"
             href="#"

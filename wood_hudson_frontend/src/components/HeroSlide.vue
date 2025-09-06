@@ -1,12 +1,12 @@
 <template>
   <section class="hero-slide-section">
     <div class="slideshow">
-      <img :src="slides[currentSlide]" alt="Slide Image" />
+      <img :src="slides[currentSlide]" alt="Slide Image" class="slide-image" />
       <div class="overlay">
         <div class="content">
           <h1>{{ title }}</h1>
           <p>{{ subtitle }}</p>
-          <button class="donate-button">Donate Now</button>
+          <button class="donate-button" @click="goDonate">Donate Now</button>
         </div>
       </div>
     </div>
@@ -21,11 +21,11 @@ export default {
       title: "Making Childhood Cancer History",
       subtitle: "Join us in supporting children and families in need.",
       slides: [
-        require('@/assets/slide1.jpg'),
-        require('@/assets/slide2.jpg'),
-        require('@/assets/slide3.jpg')
+        require("@/assets/slide1.jpg"),
+        require("@/assets/slide2.jpg"),
+        require("@/assets/slide3.jpg")
       ],
-      currentSlide: 0,
+      currentSlide: 0
     };
   },
   mounted() {
@@ -36,6 +36,9 @@ export default {
       setInterval(() => {
         this.currentSlide = (this.currentSlide + 1) % this.slides.length;
       }, 5000);
+    },
+    goDonate() {
+      this.$router.push("/donate");
     }
   }
 };
@@ -45,7 +48,7 @@ export default {
 .hero-slide-section {
   position: relative;
   width: 100%;
-  height: 60vh; /* slightly smaller than previous 70vh */
+  height: 60vh; /* slightly smaller section */
   overflow: hidden;
 }
 
@@ -55,10 +58,10 @@ export default {
   position: relative;
 }
 
-.slideshow img {
+.slide-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* makes image fill section */
+  object-fit: cover;
 }
 
 .overlay {
@@ -68,23 +71,26 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;   /* vertically center text */
-  justify-content: flex-start; /* text on left */
+  align-items: center;
+  justify-content: flex-start;
   padding-left: 5%;
-  background: rgba(0,0,0,0.2); /* optional dark overlay for readability */
+  background: rgba(0, 0, 0, 0.3);
   color: white;
+  pointer-events: auto; /* ensures clicks work */
+  z-index: 2;
 }
 
-.overlay .content {
+.content {
   max-width: 500px;
+  z-index: 3;
 }
 
-.overlay h1 {
+h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.overlay p {
+p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -97,6 +103,7 @@ export default {
   font-size: 1.2rem;
   border-radius: 4px;
   cursor: pointer;
+  z-index: 3;
 }
 
 .donate-button:hover {
@@ -110,18 +117,19 @@ export default {
     padding: 1rem;
   }
 
-  .overlay .content {
+  .content {
     max-width: 100%;
     text-align: center;
   }
 
-  .overlay h1 {
+  h1 {
     font-size: 2rem;
   }
 
-  .overlay p {
+  p {
     font-size: 1rem;
   }
 }
 </style>
+
 

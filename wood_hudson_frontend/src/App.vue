@@ -1,19 +1,23 @@
 <template>
   <div id="app">
     <TopBar />
-    <router-view /> <!-- 👈 This is where the page content will load -->
+    <router-view />
+    <ContactFooter />
   </div>
 </template>
 
 <script>
-import TopBar from './components/TopBar.vue';
+import TopBar from "@/components/TopBar.vue";
+import ContactFooter from "@/components/ContactFooter.vue";
 
 export default {
   components: {
-    TopBar
+    TopBar,
+    ContactFooter
   }
 };
 </script>
+
 
 <style>
 #app {
